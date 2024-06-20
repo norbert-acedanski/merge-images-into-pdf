@@ -14,7 +14,7 @@ if __name__ == "__main__":
     path = Path(parser.parse_args().path)
     # https://stackoverflow.com/a/33159707
     print(f"Storing {len(os.listdir(path))} images from '{path}'...")
-    images = [Image.open(image_path) for image_path in [path.joinpath(file_name)for file_name in
+    images = [Image.open(image_path) for image_path in [path.joinpath(file_name) for file_name in
                                                         sorted(os.listdir(path), key=lambda image_name: int("".join(filter(str.isdigit, image_name))))]]
     for image in images:
         image.convert("RGB")
